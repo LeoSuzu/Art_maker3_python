@@ -11,8 +11,7 @@ class CircleArt:
 
         # Turtle module settings
         self.turtle = Turtle()
-        self.turtle.speed(0)
-        self.turtle.shape("turtle")
+        self.turtle.speed("fastest")
         self.turtle.hideturtle()
         self.turtle.pensize(50)
 
@@ -27,18 +26,6 @@ class CircleArt:
         new_position = (position_x, position_y)
         return new_position
 
-    def random_pen_colour_maker(self):
-        """
-        Generates a random pen color.
-        Returns:
-            tuple: RGB values of the pen color.
-        """
-        reds = random.randint(80, 255)
-        blues = random.randint(80, 255)
-        yellows = random.randint(80, 255)
-        pen_colour = (reds, blues, yellows)
-        return pen_colour
-
     def draw_art(self, rgb_colors, circle_count):
         """
         Draws the circle art.
@@ -47,10 +34,12 @@ class CircleArt:
             circle_count (int): Number of circles to draw.
         """
         for i in range(int(circle_count)):
+            self.turtle.speed("fastest")
+            self.turtle.hideturtle()
             for _ in range(int(360 / 80)):
+                color = random.choice(rgb_colors)
                 self.turtle.penup()
                 self.turtle.forward(random.randint(50, 150))
-                color = random.choice(rgb_colors)
                 self.turtle.pencolor(color)
                 self.turtle.pendown()
                 self.turtle.circle(1200)

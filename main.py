@@ -9,7 +9,7 @@ from random_walk_art import RandomWalkArt
 
 # Create the Tkinter window
 window = tk.Tk()
-window.title("Art Maker")
+window.title("Python Art Maker3")
 
 rgb_colors = []
 brightness_threshold = 400  # Adjust this threshold according to your needs
@@ -34,12 +34,13 @@ def choose_image():
     filepath = filedialog.askopenfilename(filetypes=[("jpg files", "*.jpg"), ("jpeg files", "*.jpeg")])
     if filepath:
         image_var.set(filepath)
+        print(f"Image opened at path {filepath}")
     # Process the selected image path
     if filepath:
         # Process the image file
         print("Selected image:", filepath)
         colors = colorgram.extract(filepath, palette_amount)  # Extract more colors initially
-
+        print(f"From opened image picked color amount: {len(colors)}")
         for color in colors:
             r = color.rgb.r
             g = color.rgb.g
